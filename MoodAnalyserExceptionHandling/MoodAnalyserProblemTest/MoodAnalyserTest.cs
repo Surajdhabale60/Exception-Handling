@@ -59,5 +59,22 @@ namespace MoodAnalyserProblemTest
                 Assert.AreEqual("Message should not be null", ex.Message);
             }
         }
+        //TC3.2
+        [Test]
+        public void GivenEmptyMessage_ThrowsMoodAnalysisExceptionEmptyMessage()
+        {
+            try
+            {
+                //Arrange
+                string message = " ";
+                MoodAnalyser analyse = new MoodAnalyser(message);
+                //Act
+                string mood = analyse.AnalyzeMood();
+            }
+            catch (MoodAnalyserCostomException ex)
+            {
+                Assert.AreEqual("Message should not be Empty", ex.Message);
+            }
+        }
     }
 }
